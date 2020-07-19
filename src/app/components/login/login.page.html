@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+    <ion-title>Connexion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div [hidden]="badLogin == ''" class="error">
+    {{badLogin}}
+  </div>
+  <form [formGroup]="user" (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Nom de compte :</ion-label>
+      <ion-input type="text" formControlName="login"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mot de passe :</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    
+    <ion-button type="submit" [disabled]="!user.valid">Connexion</ion-button>
+  </form>
+
+</ion-content>
+<ion-footer>
+</ion-footer>
